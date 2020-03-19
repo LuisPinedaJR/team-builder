@@ -10,6 +10,12 @@ const FormComp = props => {
       {props.errors.name && props.touched.name ? (
         <span className="error">{props.errors.name}</span>
       ) : null}
+
+      <Field name="position" placeholder="enter position" />
+      {props.errors.position && props.touched.position ? (
+        <span className="error">{props.errors.position}</span>
+      ) : null}
+
       <Field name="email" placeholder="enter email" />
       {props.errors.email && props.touched.email ? (
         <span className="error">{props.errors.email}</span>
@@ -31,6 +37,7 @@ export default withFormik({
   mapPropsToValues: props => {
     return {
       name: props.name || '',
+      position: props.position || '',
       email: props.email || '',
       number: props.number || '',
       risk: props.risk || false,
@@ -38,6 +45,7 @@ export default withFormik({
   },
   validationSchema: Yup.object().shape({
     name: Yup.string().required('Please enter your name'),
+    position: Yup.string().required('Please enter your crew position'),
     email: Yup.string().email('Please enter a valid email'),
     number: Yup.string()
       .min(10, 'Please a correct phone#')

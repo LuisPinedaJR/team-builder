@@ -8,6 +8,7 @@ function App() {
     {
       id: 1,
       name: 'Spongebob Squarepants',
+      position: 'crabby patty grill master',
     },
   ])
 
